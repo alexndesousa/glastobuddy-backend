@@ -58,6 +58,7 @@ export const refreshStoredLineupGenres = async (req, res) => {
 
 const artistsFromGenre = async (req) => {
 	const rawLoadedLineup = await retrieveObject("glasto_lineup_spotify")
+	console.log("artists from genre")
 	return Object.values(rawLoadedLineup)
 		.map((value) => JSON.parse(value))
 		.filter(
