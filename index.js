@@ -12,7 +12,7 @@ import {
 } from "./src/controllers/glasto_lineup_controller.js"
 
 const app = express()
-const port = 3000
+const port = 8080
 
 const corsOptions = {
 	origin: [
@@ -36,6 +36,5 @@ app.post("/getAllSongsForArtistsFromGenre", getAllSongsForArtistsFromGenre)
 
 app.get("/getAllLineupSongs", getAllLineupSongs)
 
-app.listen(port, "0.0.0.0", () => {
-	console.log(`glastobuddy-backend listening at https://localhost:${port}`)
-})
+app.listen(port)
+console.log("Listening on port 8080")
