@@ -36,6 +36,6 @@ app.post("/getAllSongsForArtistsFromGenre", getAllSongsForArtistsFromGenre)
 
 app.get("/getAllLineupSongs", getAllLineupSongs)
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
 	console.log(`glastobuddy-backend listening at https://localhost:${port}`)
 })
