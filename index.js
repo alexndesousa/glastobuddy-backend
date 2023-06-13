@@ -16,6 +16,24 @@ import {
 	fetchAndStoreAllArtistsTopSongs,
 } from "./src/controllers/glasto_lineup_controller.js"
 
+const key = fs.readFileSync(
+	"/etc/letsencrypt/live/api.thickfeed.co.uk/privkey.pem",
+	"utf8"
+)
+const cert = fs.readFileSync(
+	"/etc/letsencrypt/live/api.thickfeed.co.uk/cert.pem",
+	"utf8"
+)
+const ca = fs.readFileSync(
+	"/etc/letsencrypt/live/api.thickfeed.co.uk/chain.pem",
+	"utf8"
+)
+const options = {
+	key,
+	cert,
+	ca,
+}
+
 const app = express()
 const port = 8080
 
@@ -44,13 +62,5 @@ app.post("/getAllSongsForArtistsFromGenre", getAllSongsForArtistsFromGenre)
 
 app.get("/getAllLineupSongs", getAllLineupSongs)
 
-https
-	.createServer(
-		{
-			key: fs.readFileSync("server.key"),
-			cert: fs.readFileSync("server.cert"),
-		},
-		app
-	)
-	.listen(port)
+https.createServer(options, app).listen(port)
 console.log("Listening on port 8080")
