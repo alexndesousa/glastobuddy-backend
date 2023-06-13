@@ -12,7 +12,7 @@ import {
 } from "./src/controllers/glasto_lineup_controller.js"
 
 const app = express()
-const port = 3001
+const port = 80
 
 const corsOptions = {
 	origin: [
