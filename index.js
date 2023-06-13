@@ -17,15 +17,15 @@ import {
 } from "./src/controllers/glasto_lineup_controller.js"
 
 const key = fs.readFileSync(
-	"/etc/letsencrypt/live/api.thickfeed.co.uk/privkey.pem",
+	"/etc/letsencrypt/live/api.glastobuddy.com/privkey.pem",
 	"utf8"
 )
 const cert = fs.readFileSync(
-	"/etc/letsencrypt/live/api.thickfeed.co.uk/cert.pem",
+	"/etc/letsencrypt/live/api.glastobuddy.com/cert.pem",
 	"utf8"
 )
 const ca = fs.readFileSync(
-	"/etc/letsencrypt/live/api.thickfeed.co.uk/chain.pem",
+	"/etc/letsencrypt/live/api.glastobuddy.com/chain.pem",
 	"utf8"
 )
 const options = {
