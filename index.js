@@ -9,6 +9,7 @@ import {
 	getAllSongsForArtistsFromGenre,
 	getAllLineupSongs,
 	getAllSongsForArtistsFromArtists,
+	storeLineup,
 } from "./src/controllers/glasto_lineup_controller.js"
 
 const app = express()
@@ -26,6 +27,7 @@ app.use(cors(corsOptions))
 app.use(express.json())
 
 app.get("/getLineup", fetchLineup)
+app.get("/storeLineup", storeLineup)
 app.get("/getGenres", refreshStoredLineupGenres)
 
 app.post("/findArtistsFromPlaylists", findArtistsFromPlaylists)
