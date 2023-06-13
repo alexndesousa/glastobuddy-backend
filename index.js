@@ -1,4 +1,6 @@
 import "dotenv/config"
+import https from "https"
+import fs from "fs"
 import express from "express"
 import cors from "cors"
 import {
@@ -42,5 +44,13 @@ app.post("/getAllSongsForArtistsFromGenre", getAllSongsForArtistsFromGenre)
 
 app.get("/getAllLineupSongs", getAllLineupSongs)
 
-app.listen(port)
+https
+	.createServer(
+		{
+			key: fs.readFileSync("server.key"),
+			cert: fs.readFileSync("server.cert"),
+		},
+		app
+	)
+	.listen(port)
 console.log("Listening on port 8080")
