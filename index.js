@@ -14,6 +14,7 @@ import {
 	storeLineup,
 	fetchAndStoreArtistSpotifyInfo,
 	fetchAndStoreAllArtistsTopSongs,
+	fetchMissingLineup,
 } from "./src/controllers/glasto_lineup_controller.js"
 
 const key = fs.readFileSync(
@@ -53,6 +54,7 @@ app.get("/storeLineup", storeLineup) // gets lineup and stores it
 app.get("/fetchAndStoreArtistSpotifyInfo", fetchAndStoreArtistSpotifyInfo) // goes through lineup and gets all their info
 app.get("/fetchAndStoreAllArtistsTopSongs", fetchAndStoreAllArtistsTopSongs) // goes through info and gets all songs
 app.get("/getGenres", refreshStoredLineupGenres)
+app.get("/missingLineup", fetchMissingLineup)
 
 app.post("/findArtistsFromPlaylists", findArtistsFromPlaylists)
 app.post("/findArtistsFromGenre", findArtistsFromGenre)

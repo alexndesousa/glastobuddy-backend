@@ -38,6 +38,11 @@ export const fetchLineup = async (req, res) => {
 	}
 }
 
+export const fetchMissingLineup = async (req, res) => {
+	const lineup = await retrieveArray("failed_glasto_lineup_spotify")
+	res.send({ body: lineup })
+}
+
 export const storeLineup = async (req, res) => {
 	const names = await getLineup()
 	await storeArray("glasto_lineup", names)
