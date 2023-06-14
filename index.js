@@ -44,6 +44,7 @@ const corsOptions = {
 		"https://localhost:3000",
 		"http://localhost:5000",
 		"https://alexndesousa.github.io",
+		"https://glastobuddy.com",
 	],
 }
 app.use(cors(corsOptions))
